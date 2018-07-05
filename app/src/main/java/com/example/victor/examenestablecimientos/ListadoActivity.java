@@ -82,9 +82,9 @@ public class ListadoActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        finish();
         Intent i = new Intent(this, BusquedaActivity.class);
         startActivity(i);
-        finish();
         super.onBackPressed();
     }
 

@@ -26,6 +26,7 @@ public class BusquedaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_busqueda);
+
         //Completar arrays
         ciudades.add("Temuco");
         ciudades.add("Santiago");
@@ -58,7 +59,7 @@ public class BusquedaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(BusquedaActivity.this, ListadoActivity.class);
-                finish();
+
                 startActivity(i);
             }
         });
@@ -88,5 +89,11 @@ public class BusquedaActivity extends AppCompatActivity {
     public void cargarBuscar(Context ctx) {
         Intent i = new Intent(ctx, BusquedaActivity.class);
         startActivity(i);
+    }
+
+    @Override
+    public void onBackPressed() {
+        this.finishAffinity();
+        super.onBackPressed();
     }
 }
