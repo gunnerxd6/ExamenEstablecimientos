@@ -127,8 +127,8 @@ public class InformacionActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        Intent i = new Intent(this, ListadoActivity.class);
-        startActivity(i);
+       // Intent i = new Intent(this, ListadoActivity.class);
+       // startActivity(i);
         finish();
         super.onBackPressed();
     }

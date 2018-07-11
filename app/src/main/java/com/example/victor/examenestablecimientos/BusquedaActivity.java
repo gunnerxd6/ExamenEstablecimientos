@@ -21,6 +21,7 @@ public class BusquedaActivity extends AppCompatActivity {
     ArrayList<String> tipos = new ArrayList<>();
     Spinner sp_ciudad, sp_tipo, sp_nivel;
     Button bt_filtrar;
+    String seleccionCiudad,seleccionTipo,seleccionNivel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +59,14 @@ public class BusquedaActivity extends AppCompatActivity {
         bt_filtrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Obtener opciones seleccionadas en los spinners
+                seleccionCiudad = sp_ciudad.getSelectedItem().toString();
+                seleccionNivel = sp_nivel.getSelectedItem().toString();
+                seleccionTipo = sp_tipo.getSelectedItem().toString();
                 Intent i = new Intent(BusquedaActivity.this, ListadoActivity.class);
-
+                i.putExtra("seleccionCiudad",seleccionCiudad);
+                i.putExtra("seleccionNivel",seleccionNivel);
+                i.putExtra("seleccionTipo",seleccionTipo);
                 startActivity(i);
             }
         });

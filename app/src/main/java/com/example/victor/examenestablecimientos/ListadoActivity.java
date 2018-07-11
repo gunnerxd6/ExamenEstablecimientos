@@ -18,18 +18,23 @@ import java.util.ArrayList;
 public class ListadoActivity extends AppCompatActivity {
     RecyclerView rv_listado;
     ArrayList<Establecimiento> establecimientos = new ArrayList<>();
+    String seleccionCiudad, seleccionNivel, seleccionTipo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listado);
         rv_listado = findViewById(R.id.rv_listado);
+        seleccionCiudad = getIntent().getExtras().getString("seleccionCiudad");
+        seleccionNivel = getIntent().getExtras().getString("seleccionNivel");
+        seleccionTipo = getIntent().getExtras().getString("seleccionTipo");
         consultarEstablecimientos();
+
 
     }
 
     private void consultarEstablecimientos() {
-        BaseHelper helper = new BaseHelper(this, "db_establecimientos", null, 11);
+        BaseHelper helper = new BaseHelper(this, "db_establecimientos", null, 17);
         SQLiteDatabase db = helper.getWritableDatabase();
 
 
@@ -48,9 +53,20 @@ public class ListadoActivity extends AppCompatActivity {
             establecimiento.setAltitud(CC.getString(CC.getColumnIndex("ALTITUD")));
             establecimiento.setLatitud(CC.getString(CC.getColumnIndex("LATITUD")));
             establecimiento.setEnsenanza(CC.getString(CC.getColumnIndex("ENSENANZA")));
+            establecimiento.setCiudad(CC.getString(CC.getColumnIndex("CIUDAD")));
+
+            if(seleccionNivel.equals("Ambos")){
+                if (establecimiento.getCiudad().toLowerCase().equals(seleccionCiudad.toLowerCase()) && establecimiento.getTipo().toLowerCase().equals(seleccionTipo.toLowerCase())) {
+                    establecimientos.add(establecimiento);
+                }
+            }else{
+                if (establecimiento.getCiudad().toLowerCase().equals(seleccionCiudad.toLowerCase()) && establecimiento.getTipo().toLowerCase().equals(seleccionTipo.toLowerCase()) && establecimiento.getNivel().toLowerCase().equals(seleccionNivel.toLowerCase())) {
+                    establecimientos.add(establecimiento);
+                }
+            }
 
 
-            establecimientos.add(establecimiento);
+
         }
         Adaptador adaptador = new Adaptador(establecimientos, this);
         rv_listado.setLayoutManager(new LinearLayoutManager(this));
@@ -82,7 +98,6 @@ public class ListadoActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        finish();
         Intent i = new Intent(this, BusquedaActivity.class);
         startActivity(i);
         super.onBackPressed();

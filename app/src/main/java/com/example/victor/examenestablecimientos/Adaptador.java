@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -50,6 +51,7 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.EstablecimientosVi
                 i.putExtra("director", establecimiento.getDirector());
                 i.putExtra("altitud", establecimiento.getAltitud());
                 i.putExtra("latitud", establecimiento.getLatitud());
+                i.putExtra("ciudad", establecimiento.getCiudad());
                 ctx.startActivity(i);
 
             }
@@ -59,6 +61,10 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.EstablecimientosVi
 
     @Override
     public int getItemCount() {
+        if(establecimientos.size()==0){
+            Toast.makeText(ctx,"Ningun establecimiento coincide con los criterios de busqueda",Toast.LENGTH_SHORT).show();
+
+        }
         return establecimientos.size();
     }
 
