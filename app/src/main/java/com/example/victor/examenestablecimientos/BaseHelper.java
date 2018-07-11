@@ -39,6 +39,8 @@ public class BaseHelper extends SQLiteOpenHelper {
         nombres.add("Escuela Basica Santa Isabel");
         nombres.add("Escuela Villa Carolina");
         nombres.add("Escuela Arturo Prat");
+        nombres.add("Escuela Libertadores De Chile");
+        nombres.add("Escuela Reyes Católicos");
 
         //Definir direccion
         direccion.add(" Manuel Rodriguez 1344, Antonio Varas, Temuco, Región de la Araucanía");
@@ -48,6 +50,8 @@ public class BaseHelper extends SQLiteOpenHelper {
         direccion.add("Escuela Basica Santa Isabel");
         direccion.add("Boyeco 0561 PEDRO DE VALDIVIA, Temuco");
         direccion.add("Gral Mackenna 685, Temuco, Región de la Araucanía");
+        direccion.add("Escuela Libertadores De Chile");
+        direccion.add("Sta Elena 1829, Santiago, Región Metropolitana");
 
         //Definir telefono
         telefono.add("45 221 3239");
@@ -57,6 +61,8 @@ public class BaseHelper extends SQLiteOpenHelper {
         telefono.add("(2) 2544 3050");
         telefono.add("(45) 234 5837");
         telefono.add("(45) 227 0974");
+        telefono.add("562-26733010");
+        telefono.add("(2) 2544 3373");
 
         //Definir web
         web.add("www.www.cl");
@@ -66,6 +72,8 @@ public class BaseHelper extends SQLiteOpenHelper {
         web.add("colegiosantaisabel.cl");
         web.add("villacarolina-temuco.cl");
         web.add("arturoprat-temuco.cl");
+        web.add("webescuela.cl");
+        web.add("webescuela.cl");
 
         //Definit Tipo
         tipos.add("Privada");
@@ -75,10 +83,14 @@ public class BaseHelper extends SQLiteOpenHelper {
         tipos.add("Privada");
         tipos.add("Municipal");
         tipos.add("Municipal");
+        tipos.add("Municipal");
+        tipos.add("Municipal");
 
         //Definir nivel
         nivel.add("Enseñanza media");
         nivel.add("Enseñanza media");
+        nivel.add("Enseñanza basica");
+        nivel.add("Enseñanza basica");
         nivel.add("Enseñanza basica");
         nivel.add("Enseñanza basica");
         nivel.add("Enseñanza basica");
@@ -94,6 +106,8 @@ public class BaseHelper extends SQLiteOpenHelper {
         director.add("");
         director.add("Paula Riquelme S.");
         director.add("Jaime Ponce");
+        director.add("Cristian Andrés Moreno Tapia");
+        director.add("María Elena Domínguez Rogers");
 
         //Definir correo
         correo.add("asd@asd.cl");
@@ -103,8 +117,12 @@ public class BaseHelper extends SQLiteOpenHelper {
         correo.add("colegiosantaisabel2000@gmail.com ");
         correo.add("villacarolina@temuco.cl");
         correo.add("arturoprat@temuco.cl");
+        correo.add("e.libertadoresdechile@munistgo.cl");
+        correo.add("e.reyescatolicos@munistgo.cl");
 
         //Definir enseñanza
+        ensenanza.add("Cientifico humanista");
+        ensenanza.add("Cientifico humanista");
         ensenanza.add("Cientifico humanista");
         ensenanza.add("Cientifico humanista");
         ensenanza.add("Cientifico humanista");
@@ -121,6 +139,8 @@ public class BaseHelper extends SQLiteOpenHelper {
         altidud.add("-33.4453833");
         altidud.add("-38.7167521");
         altidud.add("-38.7407119");
+        altidud.add("-33.4349887");
+        altidud.add("-33.4678316");
 
         //Definir latitud
         latitud.add("-72.5837616");
@@ -130,6 +150,8 @@ public class BaseHelper extends SQLiteOpenHelper {
         latitud.add("-70.6283737");
         latitud.add("-72.6233975");
         latitud.add("-72.5890722");
+        latitud.add("-70.6623018");
+        latitud.add("-70.6299658");
 
         //Definir ciudad
         ciudad.add("Temuco");
@@ -139,7 +161,8 @@ public class BaseHelper extends SQLiteOpenHelper {
         ciudad.add("Santiago");
         ciudad.add("Temuco");
         ciudad.add("Temuco");
-
+        ciudad.add("Santiago");
+        ciudad.add("Santiago");
 
         for (int i = 0; i < nombres.size(); i++) {
             c.put("NOMBRE_ESTABLECIMIENTO", nombres.get(i));

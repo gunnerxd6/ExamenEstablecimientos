@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -34,7 +35,7 @@ public class ListadoActivity extends AppCompatActivity {
     }
 
     private void consultarEstablecimientos() {
-        BaseHelper helper = new BaseHelper(this, "db_establecimientos", null, 17);
+        BaseHelper helper = new BaseHelper(this, "db_establecimientos", null, 20);
         SQLiteDatabase db = helper.getWritableDatabase();
 
 
@@ -70,7 +71,11 @@ public class ListadoActivity extends AppCompatActivity {
         }
         Adaptador adaptador = new Adaptador(establecimientos, this);
         rv_listado.setLayoutManager(new LinearLayoutManager(this));
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(rv_listado.getContext(),
+                new LinearLayoutManager(this).getOrientation());
+        rv_listado.addItemDecoration(dividerItemDecoration);
         rv_listado.setAdapter(adaptador);
+
     }
 
 
